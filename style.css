@@ -1,0 +1,51 @@
+body{
+  font-family: Arial, sans-serif;
+  margin:0;
+}
+
+.topmenu, .statusmenu{
+  display:flex;
+  gap:10px;
+  padding:10px;
+}
+
+.topmenu{ background:#2c3e50; }
+.statusmenu{ background:#34495e; }
+
+button{
+  padding:8px 14px;
+  border:none;
+  cursor:pointer;
+  color:white;
+  background:#7f8c8d;
+}
+
+button.active{ background:#27ae60; }
+
+.container{ padding:15px; }
+
+table{
+  width:100%;
+  border-collapse: collapse;
+  font-size:14px;
+}
+
+th, td{
+  border:1px solid #ccc;
+  padding:5px;
+}
+
+input, select{
+  width:100%;
+  border:none;
+  padding:4px;
+}
+
+.addBtn{
+  margin:10px 0;
+  background:#2980b9;
+}
+
+.deleteBtn{
+  background:#c0392b;
+}
