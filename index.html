@@ -24,6 +24,10 @@
 
 <div class="container">
   <button class="addBtn" onclick="addRow()">+ Új sor</button>
+  <button class="saveBtn" onclick="saveJSON()">💾 Mentés JSON</button>
+<input type="file" id="fileInput" onchange="loadJSON(event)" hidden>
+<button class="loadBtn" onclick="document.getElementById('fileInput').click()">📂 Betöltés JSON</button>
+
 
   <table id="table">
     <thead>
