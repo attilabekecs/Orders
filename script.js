@@ -47,10 +47,13 @@ function render(){
   data
   .filter(r => r.partner === currentPartner && r.status === currentStatus)
   .forEach((row) => {
+
+    const rowIndex = data.indexOf(row);   // ⭐ EZ AZ ÚJ
+
     let tr = document.createElement("tr");
 
     let statusSelect = `
-      <select onchange="updateStatus(${data.indexOf(row)}, this.value)">
+      <select onchange="updateStatus(${rowIndex}, this.value)">
         <option ${row.status=="Proformán"?"selected":""}>Proformán</option>
         <option ${row.status=="Készleten"?"selected":""}>Készleten</option>
         <option ${row.status=="Érkezik"?"selected":""}>Érkezik</option>
@@ -59,13 +62,37 @@ function render(){
     tr.innerHTML += `<td>${statusSelect}</td>`;
 
     row.fields.forEach((f, col)=>{
-      tr.innerHTML += `<td><input value="${f}" oninput="updateField(${data.indexOf(row)},${col},this.value)"></td>`;
+
+      // Raklap/Sor/Karton speciális mező
+      if(col === 5){
+        let qty = row.fields[5]?.split("|")[0] || "";
+        let type = row.fields[5]?.split("|")[1] || "Raklap";
+
+        tr.innerHTML += `
+          <td style="display:flex; gap:5px;">
+            <input type="number" value="${qty}" 
+              oninput="updateRsk(${rowIndex}, this.value, null)">
+            
+            <select onchange="updateRsk(${rowIndex}, null, this.value)">
+              <option ${type=="Raklap"?"selected":""}>Raklap</option>
+              <option ${type=="Sor"?"selected":""}>Sor</option>
+              <option ${type=="Karton"?"selected":""}>Karton</option>
+            </select>
+          </td>`;
+      }
+      else{
+        tr.innerHTML += `<td>
+          <input value="${f || ""}" 
+          oninput="updateField(${rowIndex},${col},this.value)">
+        </td>`;
+      }
     });
 
-    tr.innerHTML += `<td><button class="deleteBtn" onclick="deleteRow(${data.indexOf(row)})">X</button></td>`;
+    tr.innerHTML += `<td><button class="deleteBtn" onclick="deleteRow(${rowIndex})">X</button></td>`;
     tbody.appendChild(tr);
   });
 }
+
 
 selectPartner("Fonlak");
 selectStatus("Proformán");
@@ -96,4 +123,14 @@ function loadJSON(event){
   };
   reader.readAsText(file);
 }
+function updateRsk(rowIndex, qty, type){
+  let current = data[rowIndex].fields[5] || "|Raklap";
+  let parts = current.split("|");
+
+  if(qty !== null) parts[0] = qty;
+  if(type !== null) parts[1] = type;
+
+  data[rowIndex].fields[5] = parts.join("|");
+}
+
 
