@@ -87,6 +87,7 @@ table{
   border-radius:12px;
   overflow:hidden;
   box-shadow:0 5px 20px rgba(0,0,0,0.05);
+  table-layout:auto;   /* EZ A LÉNYEG */
 }
 
 thead{
