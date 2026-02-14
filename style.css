@@ -65,6 +65,7 @@ body{
 /* CONTENT */
 .container{
   padding:25px;
+  overflow-x:auto;
 }
 
 /* ADD BUTTON */
@@ -87,7 +88,7 @@ table{
   border-radius:12px;
   overflow:hidden;
   box-shadow:0 5px 20px rgba(0,0,0,0.05);
-  table-layout:auto;   /* EZ A LÉNYEG */
+  table-layout:auto;
 }
 
 thead{
@@ -121,7 +122,13 @@ input, select{
   border:1px solid #e5e7eb;
   border-radius:6px;
   font-size:13px;
+  min-width:120px;
 }
+td{
+  min-width:140px;
+  white-space:nowrap;
+}
+
 
 /* DELETE */
 .deleteBtn{
@@ -151,4 +158,14 @@ input, select{
   font-weight:600;
   margin-left:10px;
 }
+/* hosszú szöveg kezelése */
+input{
+  overflow-x:auto;
+  white-space:nowrap;
+}
+
+input:focus{
+  outline:2px solid #3b82f6;
+}
+
 
