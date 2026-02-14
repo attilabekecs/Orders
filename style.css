@@ -1,51 +1,133 @@
-body{
-  font-family: Arial, sans-serif;
-  margin:0;
+/* Google font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+*{
+  box-sizing:border-box;
 }
 
-.topmenu, .statusmenu{
+body{
+  font-family: 'Inter', sans-serif;
+  margin:0;
+  background:#f5f7fb;
+  color:#2c3e50;
+}
+
+/* HEADER */
+.topmenu{
   display:flex;
   gap:10px;
-  padding:10px;
+  padding:15px 20px;
+  background:#1f2937;
+  box-shadow:0 2px 8px rgba(0,0,0,0.2);
 }
 
-.topmenu{ background:#2c3e50; }
-.statusmenu{ background:#34495e; }
+.topmenu button{
+  background:transparent;
+  border:1px solid #4b5563;
+  color:#d1d5db;
+  border-radius:8px;
+  padding:8px 18px;
+  font-weight:600;
+}
 
-button{
-  padding:8px 14px;
+.topmenu button.active{
+  background:#3b82f6;
   border:none;
-  cursor:pointer;
   color:white;
-  background:#7f8c8d;
 }
 
-button.active{ background:#27ae60; }
+/* STATUS BAR */
+.statusmenu{
+  display:flex;
+  gap:10px;
+  padding:12px 20px;
+  background:white;
+  border-bottom:1px solid #e5e7eb;
+}
 
-.container{ padding:15px; }
+.statusmenu button{
+  border-radius:20px;
+  padding:7px 16px;
+  font-weight:600;
+  color:white;
+}
 
+/* státusz színek */
+#sPro{ background:#f59e0b; }
+#sKes{ background:#10b981; }
+#sErk{ background:#3b82f6; }
+#sElk{ background:#6b7280; }
+
+.statusmenu button.active{
+  box-shadow:0 0 0 3px rgba(0,0,0,0.1) inset;
+}
+
+/* CONTENT */
+.container{
+  padding:25px;
+}
+
+/* ADD BUTTON */
+.addBtn{
+  background:#3b82f6;
+  border:none;
+  color:white;
+  padding:10px 18px;
+  border-radius:8px;
+  font-weight:600;
+  margin-bottom:15px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* TABLE */
 table{
   width:100%;
-  border-collapse: collapse;
-  font-size:14px;
+  border-collapse:collapse;
+  background:white;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 5px 20px rgba(0,0,0,0.05);
 }
 
-th, td{
-  border:1px solid #ccc;
-  padding:5px;
+thead{
+  background:#f3f4f6;
+  position:sticky;
+  top:0;
 }
 
+th{
+  text-align:left;
+  padding:12px;
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+}
+
+td{
+  padding:8px;
+  border-top:1px solid #f0f0f0;
+}
+
+/* zebra rows */
+tbody tr:nth-child(even){
+  background:#fafafa;
+}
+
+/* INPUT */
 input, select{
   width:100%;
-  border:none;
-  padding:4px;
+  padding:6px;
+  border:1px solid #e5e7eb;
+  border-radius:6px;
+  font-size:13px;
 }
 
-.addBtn{
-  margin:10px 0;
-  background:#2980b9;
-}
-
+/* DELETE */
 .deleteBtn{
-  background:#c0392b;
+  background:#ef4444;
+  color:white;
+  border:none;
+  padding:5px 10px;
+  border-radius:6px;
+  font-weight:bold;
 }
