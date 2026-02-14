@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<title>Készlet kezelő</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Partner menü -->
+<div class="topmenu">
+  <button onclick="selectPartner('Fonlak')" id="pFonlak">Fonlak</button>
+  <button onclick="selectPartner('Sen Trading')" id="pSen">Sen Trading</button>
+</div>
+
+<!-- Státusz menü -->
+<div class="statusmenu">
+  <button onclick="selectStatus('Proformán')" id="sPro">Proformán</button>
+  <button onclick="selectStatus('Készleten')" id="sKes">Készleten</button>
+  <button onclick="selectStatus('Érkezik')" id="sErk">Érkezik</button>
+  <button onclick="selectStatus('Elküldve')" id="sElk">Elküldve</button>
+</div>
+
+<div class="container">
+  <button class="addBtn" onclick="addRow()">+ Új sor</button>
+
+  <table id="table">
+    <thead>
+      <tr>
+        <th>Státusz</th>
+        <th>EAN</th>
+        <th>Cikkszám</th>
+        <th>Termék</th>
+        <th>Ár</th>
+        <th>db</th>
+        <th>Raklap/Sor/Karton</th>
+        <th>Raklap típus</th>
+        <th>Érkezik</th>
+        <th>Proforma</th>
+        <th>Vevő rendelés</th>
+        <th>Szállítói rendelés</th>
+        <th>db/Raklap</th>
+        <th>db/Sor</th>
+        <th>db/Karton</th>
+        <th>Karton/Raklap</th>
+        <th>Törlés</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
