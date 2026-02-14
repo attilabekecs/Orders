@@ -131,3 +131,23 @@ input, select{
   border-radius:6px;
   font-weight:bold;
 }
+.saveBtn{
+  background:#10b981;
+  border:none;
+  color:white;
+  padding:10px 18px;
+  border-radius:8px;
+  font-weight:600;
+  margin-left:10px;
+}
+
+.loadBtn{
+  background:#f59e0b;
+  border:none;
+  color:white;
+  padding:10px 18px;
+  border-radius:8px;
+  font-weight:600;
+  margin-left:10px;
+}
+
