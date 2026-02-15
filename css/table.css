@@ -17,7 +17,7 @@ thead{
 }
 
 th{
-  text-align:left;
+  text-align:center;
   padding:12px;
   font-size:13px;
   text-transform:uppercase;
@@ -58,9 +58,9 @@ thead tr:nth-child(2) th{
   border-bottom:2px solid #1e293b;
 }
 /* csoport elválasztók (új oszloprendhez) */
-th:nth-child(6),
+th:nth-child(4),
 td:nth-child(6),
-th:nth-child(10),
+th:nth-child(8),
 td:nth-child(10),
 th:nth-child(13),
 td:nth-child(13){
