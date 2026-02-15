@@ -12,8 +12,20 @@ function selectPartner(p){
 
 function selectStatus(s){
   currentStatus = s;
-  document.querySelectorAll(".statusmenu button").forEach(b=>b.classList.remove("active"));
-  event.target.classList.add("active");
+
+  document.querySelectorAll(".statusmenu button")
+    .forEach(b=>b.classList.remove("active"));
+
+  const map = {
+    "Proformán":"sPro",
+    "Készleten":"sKes",
+    "Érkezik":"sErk",
+    "Elküldve":"sElk"
+  };
+
+  const btn = document.getElementById(map[s]);
+  if(btn) btn.classList.add("active");
+
   render();
 }
 
