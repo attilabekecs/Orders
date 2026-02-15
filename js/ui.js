@@ -1,7 +1,12 @@
 function selectPartner(p){
   currentPartner = p;
-  document.querySelectorAll(".topmenu button").forEach(b=>b.classList.remove("active"));
-  event.target.classList.add("active");
+
+  document.querySelectorAll(".topmenu button")
+    .forEach(b=>b.classList.remove("active"));
+
+  const btn = document.getElementById(p === "Fonlak" ? "pFonlak" : "pSen");
+  if(btn) btn.classList.add("active");
+
   render();
 }
 
