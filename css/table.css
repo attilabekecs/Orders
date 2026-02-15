@@ -13,7 +13,7 @@ thead{
   background:#0f172a;
   position:sticky;
   top:0;
-  z-index:2;
+  z-index:5;
 }
 
 th{
@@ -39,3 +39,31 @@ tbody tr:nth-child(even){
 tbody tr:nth-child(odd){
   background:#060a12;
 }
+thead tr:first-child th{
+  position:sticky;
+  top:0;
+  z-index:3;
+}
+
+thead tr:nth-child(2) th{
+  position:sticky;
+  top:38px; /* első fejléc sor magassága */
+  z-index:2;
+}
+.groupHeader th{
+  text-align:center;
+  font-size:15px;
+  background:#020617;
+  color:#60a5fa;
+  border-bottom:2px solid #1e293b;
+}
+/* csoport elválasztók */
+th:nth-child(5),
+td:nth-child(5),
+th:nth-child(9),
+td:nth-child(9),
+th:nth-child(12),
+td:nth-child(12){
+  border-right:2px solid #1e293b;
+}
+
