@@ -199,4 +199,13 @@ table{
   margin-top:15px;
 }
 
+.footer{
+  width:100%;
+  max-width:1600px;
+  text-align:center;
+  margin-top:30px;
+  margin-bottom:20px;
+  color:#6b7280;
+  font-size:13px;
+}
 
