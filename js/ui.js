@@ -123,7 +123,7 @@ function render(){
     if(expanded){
       let details = document.createElement("tr");
       details.innerHTML = `
-        <td colspan="13" style="padding:20px;background:#020617;">
+        <td colspan="14" style="padding:20px;background:#020617;">
           <b>📊 Csomagolás adatok</b><br><br>
 
           db / Raklap:
