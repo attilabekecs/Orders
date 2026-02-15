@@ -1,0 +1,39 @@
+/* HEADER */
+.topmenu{
+  display:flex;
+  gap:10px;
+  padding:15px 20px;
+  background:#070b14;
+  box-shadow:0 2px 8px rgba(0,0,0,0.5);
+  width:100%;
+  justify-content:center;
+}
+
+/* STATUS BAR */
+.statusmenu{
+  display:flex;
+  gap:10px;
+  padding:12px 20px;
+  background:#070b14;
+  border-bottom:1px solid #1f2937;
+  width:100%;
+  justify-content:center;
+}
+
+/* CONTENT */
+.container{
+  padding:25px;
+  overflow-x:auto;
+  width:100%;
+  text-align:center;
+}
+
+/* FOOTER */
+.footer{
+  width:100%;
+  text-align:center;
+  margin-top:30px;
+  margin-bottom:20px;
+  color:#64748b;
+  font-size:13px;
+}
