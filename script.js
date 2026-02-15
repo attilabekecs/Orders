@@ -3,28 +3,30 @@ const API_URL = "https://script.google.com/macros/s/AKfycbzTgi83h80ywtygyg8j4Xtz
 let currentPartner = "Fonlak";
 let currentStatus = "Proformán";
 let data = [];
+let saveTimer = null;
 
-let saveTimer = null; // debounce mentéshez
 
-// ---------------- INIT ----------------
+// ================= INIT =================
 window.onload = async () => {
-  await loadFromCloud();      // először cloud
+  await loadFromCloud();      // cloud betöltés induláskor
   selectPartner("Fonlak");
   selectStatus("Proformán");
   render();
 };
 
-// ---------------- AUTO SAVE ----------------
+
+// ================= AUTO SAVE =================
 function autoSave(){
   localStorage.setItem("ordersData", JSON.stringify(data));
 
   clearTimeout(saveTimer);
   saveTimer = setTimeout(() => {
     saveToCloud();
-  }, 1000); // 1 mp után ment csak
+  }, 1000); // debounce mentés
 }
 
-// ---------------- PARTNER / STATUS ----------------
+
+// ================= PARTNER / STATUS =================
 function selectPartner(p){
   currentPartner = p;
   document.querySelectorAll(".topmenu button").forEach(b=>b.classList.remove("active"));
@@ -39,7 +41,8 @@ function selectStatus(s){
   render();
 }
 
-// ---------------- ROW CRUD ----------------
+
+// ================= ROW CRUD =================
 function addRow(){
   data.push({
     partner: currentPartner,
@@ -78,7 +81,8 @@ function updateRsk(rowIndex, qty, type){
   autoSave();
 }
 
-// ---------------- RENDER ----------------
+
+// ================= RENDER =================
 function render(){
   const tbody = document.querySelector("#table tbody");
   tbody.innerHTML = "";
@@ -128,7 +132,8 @@ function render(){
   });
 }
 
-// ---------------- JSON EXPORT ----------------
+
+// ================= JSON BACKUP =================
 function saveJSON(){
   const json = JSON.stringify(data, null, 2);
   const blob = new Blob([json], {type:"application/json"});
@@ -152,12 +157,17 @@ function loadJSON(event){
   reader.readAsText(file);
 }
 
-// ---------------- CLOUD ----------------
+
+// ================= CLOUD =================
 async function loadFromCloud(){
   try{
     const res = await fetch(API_URL);
-    data = await res.json();
-    console.log("Cloud betöltve");
+    const cloudData = await res.json();
+
+    if(Array.isArray(cloudData)){
+      data = cloudData;
+      console.log("Cloud betöltve");
+    }
   }catch{
     console.log("Cloud nem elérhető → local backup");
     const saved = localStorage.getItem("ordersData");
