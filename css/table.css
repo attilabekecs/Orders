@@ -57,13 +57,12 @@ thead tr:nth-child(2) th{
   color:#60a5fa;
   border-bottom:2px solid #1e293b;
 }
-/* csoport elválasztók */
-th:nth-child(5),
-td:nth-child(5),
-th:nth-child(9),
-td:nth-child(9),
-th:nth-child(12),
-td:nth-child(12){
+/* csoport elválasztók (új oszloprendhez) */
+th:nth-child(6),
+td:nth-child(6),
+th:nth-child(10),
+td:nth-child(10),
+th:nth-child(13),
+td:nth-child(13){
   border-right:2px solid #1e293b;
 }
-
